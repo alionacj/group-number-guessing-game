@@ -59,22 +59,22 @@ function compareNumbers(newArray) {
 
 
 // GET & POST Routes
-
 app.post('/guesses', (req, res) => {
-    console.log('POST request recieved!');
-    // storing inputs into variable
+    console.log('POST request received!');
+    // storing inputs into 'newGuesses' variable
   let newGuesses = req.body;
     console.log('New item parsed from request.')
     console.log('New Item:', newGuesses);
     console.log('Current guesses:', guesses);
     // call guess evaluation
   compareNumbers(newGuesses)
-    // ok :)
+    // "ok got the data :)"
   res.sendStatus(201);
 })
 
 app.get('/guesses', (req, res) => {
-    console.log('GET request recieved by client. Sending response...');
+    console.log('GET request received by client. Sending response...');
     console.log('Sending guess array to client. Array:', guesses);
   res.send(guesses);
 });
+

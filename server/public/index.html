@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Guess A Number!</title>
+  <!-- source in axios!!! otherwise GET and POST will not work!!! -->
   <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script defer src="scripts/client.js"></script>
   <link rel="stylesheet" href="styles/styles.css">
@@ -58,5 +59,6 @@
         </tr>
       </tbody>
     </table>
+    <button onclick="resetGame(event)" id="resetButton" disabled >Reset</button>
 </body>
 </html>
