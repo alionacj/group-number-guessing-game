@@ -17,5 +17,16 @@
 
 // RANDOM NUMBER GENERATOR
 
+// store guesses
+let guesses = [];
 
 // GET & POST Routes
+app.post('/guesses', (req, res) => {
+  console.log('POST request recieved!');
+  let newGuesses = req.body;
+  console.log('New item parsed from request.')
+  console.log('New Item:', newGuesses);
+  guesses.push(newGuesses);
+  console.log('Added new guesses to guess list. Updated guesses:', guesses);
+  res.sendStatus(201);
+})
