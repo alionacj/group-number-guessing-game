@@ -2,6 +2,7 @@ function onReady() {
   console.log("JavaScript is loaded!")
 } onReady()
 
+let roundCounter = 0
 
 // when submit is pressed
 function submitGuesses(event) {
@@ -18,7 +19,14 @@ function submitGuesses(event) {
     // make array of guesses (equal to req.body on server)
   let guessArray = [leoGuess, essieGuess, bradenGuess, walkerGuess, markGuess, seanGuess];
     console.log('Guess inputs:', guessArray)
-
+   document.getElementById('leo').value = '';
+   document.getElementById('essie').value = '';
+   document.getElementById('braden').value = '';
+   document.getElementById('walker').value = '';
+   document.getElementById('mark').value = '';
+  document.getElementById('sean').value = '';
+// adds one to roundCounter
+roundCounter ++;
     // send post request to server
   axios({
     method: 'POST',
@@ -55,4 +63,21 @@ function getGuesses() {
 
 function renderDisplay(guessArray) {
   console.log('render function!!', guessArray)
+  // clears table of repeated values before rendering
+  document.getElementById('tableBody').innerHTML = '';
+  // selects destination of data
+  for (let guessRound of guessArray){
+    let table =  `
+    <tr>
+    <td>${roundCounter}</td>`
+    for (let guess of guessRound){
+      table += 
+        `<td>${guess.guess}</td>
+        <td>${guess.result}</td>`
+    }
+  table += `</tr>`
+  document.getElementById('tableBody').innerHTML += table
+  }
 }
+
+
